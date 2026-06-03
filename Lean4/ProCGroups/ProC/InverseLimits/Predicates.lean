@@ -1,0 +1,215 @@
+import ProCGroups.FiniteGroups.StandardClasses
+import ProCGroups.Generation.QuotientCriteria
+import ProCGroups.ProC.InverseLimits.FiniteQuotients
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/ProCGroups/ProC/InverseLimits/Predicates.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# Pro-C groups and open normal quotients
+
+Defines pro-C conditions from finite group classes, C-open normal subgroups, pro-C categories, products, pullbacks, pushouts, and maximal pro-C quotients.
+-/
+
+open Set
+open scoped Topology Pointwise
+
+namespace ProCGroups.ProC
+
+universe u v
+
+open InverseSystems
+
+section
+
+variable {G : Type u} [Group G] [TopologicalSpace G]
+
+/-- Pronilpotent profinite groups, characterized by nilpotent finite quotients. -/
+def IsPronilpotentGroup
+    (G : Type u) [Group G] [TopologicalSpace G] : Prop :=
+  IsProfiniteGroup G ∧ ∀ U : OpenNormalSubgroup G, Group.IsNilpotent (G ⧸ (U : Subgroup G))
+
+/-- Prosolvable profinite groups, characterized by solvable finite quotients. -/
+def IsProsolvableGroup
+    (G : Type u) [Group G] [TopologicalSpace G] : Prop :=
+  IsProfiniteGroup G ∧ ∀ U : OpenNormalSubgroup G, IsSolvable (G ⧸ (U : Subgroup G))
+
+namespace IsPronilpotentGroup
+
+/-- The underlying profiniteness of a pronilpotent group. -/
+theorem isProfiniteGroup (hG : IsPronilpotentGroup G) : IsProfiniteGroup G :=
+  hG.1
+
+end IsPronilpotentGroup
+
+namespace IsProsolvableGroup
+
+/-- The underlying profiniteness of a prosolvable group. -/
+theorem isProfiniteGroup (hG : IsProsolvableGroup G) : IsProfiniteGroup G :=
+  hG.1
+
+/-- Every quotient by an open normal subgroup of a prosolvable group is solvable. -/
+theorem quotient_isSolvable (hG : IsProsolvableGroup G) (U : OpenNormalSubgroup G) :
+    IsSolvable (G ⧸ (U : Subgroup G)) :=
+  hG.2 U
+
+end IsProsolvableGroup
+
+/-- Procyclic groups as pro-`C` groups for the cyclic finite-group class. -/
+def IsProcyclicGroup
+    (G : Type u) [Group G] [TopologicalSpace G] : Prop :=
+  IsProCGroup FiniteGroupClass.cyclic G
+
+/-- Proabelian groups as pro-`C` groups for the abelian finite-group class. -/
+def IsProabelianGroup
+    (G : Type u) [Group G] [TopologicalSpace G] : Prop :=
+  IsProCGroup FiniteGroupClass.abelian G
+
+/-- Pro-`p` groups as pro-`C` groups for the finite `p`-group class. -/
+def IsProPGroup (p : ℕ)
+    (G : Type u) [Group G] [TopologicalSpace G] : Prop :=
+  IsProCGroup (FiniteGroupClass.pGroup p) G
+
+/-- Pro-`Σ` groups as pro-`C` groups for the finite `Σ`-group class. -/
+def IsProSigmaGroup (sigma : Set ℕ)
+    (G : Type u) [Group G] [TopologicalSpace G] : Prop :=
+  IsProCGroup (FiniteGroupClass.sigmaGroup sigma) G
+
+/-- A pro-`nilpotent` group is pronilpotent. -/
+theorem isPronilpotentGroup_of_isProC_nilpotent
+    (hG : IsProCGroup FiniteGroupClass.nilpotent G) : IsPronilpotentGroup G := by
+  letI : IsTopologicalGroup G := hG.isTopologicalGroup
+  refine ⟨hG.isProfinite, ?_⟩
+  intro U
+  exact
+    (IsProCGroup.hasAllOpenNormalQuotientsInClass_of_basis_of_quotientClosed
+      FiniteGroupClass.nilpotent_isomClosed FiniteGroupClass.nilpotent_quotientClosed hG U).2
+
+/-- A pro-`solvable` group is prosolvable. -/
+theorem isProsolvableGroup_of_isProC_solvable
+    (hG : IsProCGroup FiniteGroupClass.solvable G) : IsProsolvableGroup G := by
+  letI : IsTopologicalGroup G := hG.isTopologicalGroup
+  refine ⟨hG.isProfinite, ?_⟩
+  intro U
+  exact
+    (IsProCGroup.hasAllOpenNormalQuotientsInClass_of_basis_of_quotientClosed
+      FiniteGroupClass.solvable_isomClosed FiniteGroupClass.solvable_quotientClosed hG U).2
+
+namespace IsProcyclicGroup
+
+/-- A procyclic group is pronilpotent. -/
+theorem isPronilpotentGroup (hG : IsProcyclicGroup G) : IsPronilpotentGroup G := by
+  letI : IsTopologicalGroup G := hG.isTopologicalGroup
+  refine ⟨hG.isProfinite, ?_⟩
+  intro U
+  exact
+    (FiniteGroupClass.cyclic_to_nilpotent
+      (IsProCGroup.hasAllOpenNormalQuotientsInClass_of_basis_of_quotientClosed
+        FiniteGroupClass.cyclic_isomClosed FiniteGroupClass.cyclic_quotientClosed hG U)).2
+
+/-- A procyclic group is prosolvable. -/
+theorem isProsolvableGroup (hG : IsProcyclicGroup G) : IsProsolvableGroup G := by
+  letI : IsTopologicalGroup G := hG.isTopologicalGroup
+  refine ⟨hG.isProfinite, ?_⟩
+  intro U
+  exact
+    (FiniteGroupClass.cyclic_to_solvable
+      (IsProCGroup.hasAllOpenNormalQuotientsInClass_of_basis_of_quotientClosed
+        FiniteGroupClass.cyclic_isomClosed FiniteGroupClass.cyclic_quotientClosed hG U)).2
+
+/-- A procyclic group is proabelian. -/
+theorem isProabelianGroup (hG : IsProcyclicGroup G) : IsProabelianGroup G := by
+  exact hG.mono (fun {Q} [Group Q] hQ => by
+    rcases hQ with ⟨hfin, hcyc⟩
+    refine ⟨hfin, ?_⟩
+    letI : IsCyclic Q := hcyc
+    letI : CommGroup Q := IsCyclic.commGroup
+    intro a b
+    exact mul_comm a b)
+
+end IsProcyclicGroup
+
+/-- A profinite group topologically generated by one element is procyclic. -/
+theorem isProcyclicGroup_of_topologicallyGenerates_singleton
+    [IsTopologicalGroup G] (hG : IsProfiniteGroup G) {g : G}
+    (hg : Generation.TopologicallyGenerates (G := G) ({g} : Set G)) :
+    IsProcyclicGroup G := by
+  letI : CompactSpace G := IsProfiniteGroup.compactSpace hG
+  letI : T2Space G := IsProfiniteGroup.t2Space hG
+  refine IsProCGroup.of_allOpenNormalQuotients (C := FiniteGroupClass.cyclic) hG ?_
+  intro U
+  let qg : G ⧸ (U : Subgroup G) := QuotientGroup.mk' (U : Subgroup G) g
+  have hquot :
+      Generation.TopologicallyGenerates (G := G ⧸ (U : Subgroup G)) ({qg} : Set _) := by
+    have hmap := Generation.topologicallyGenerates_quotient_image
+      (G := G) (N := (U : Subgroup G)) (X := ({g} : Set G)) hg
+    simpa [qg] using hmap
+  have hdense :
+      Dense (((Subgroup.closure ({qg} : Set (G ⧸ (U : Subgroup G))) : Subgroup
+        (G ⧸ (U : Subgroup G))) : Set (G ⧸ (U : Subgroup G)))) :=
+    (Generation.topologicallyGenerates_iff_dense
+      (G := G ⧸ (U : Subgroup G)) (X := ({qg} : Set _))).1 hquot
+  have htop : Subgroup.zpowers qg = ⊤ := by
+    apply SetLike.ext'
+    rw [Subgroup.zpowers_eq_closure]
+    exact dense_discrete.1 hdense
+  have hcyc : IsCyclic (G ⧸ (U : Subgroup G)) :=
+    (isCyclic_iff_exists_zpowers_eq_top).2 ⟨qg, htop⟩
+  letI : Finite (G ⧸ (U : Subgroup G)) := openNormalSubgroup_finiteQuotient (G := G) U
+  exact ⟨inferInstance, hcyc⟩
+
+namespace IsPronilpotentGroup
+
+/-- Repackage a pronilpotent group as a pro-`nilpotent` group in the working `IsProCGroup`
+interface used for permanence arguments. -/
+theorem toIsProC_nilpotent (hG : IsPronilpotentGroup G) :
+    IsProCGroup FiniteGroupClass.nilpotent G := by
+  letI : IsTopologicalGroup G := IsProfiniteGroup.isTopologicalGroup hG.1
+  refine IsProCGroup.of_allOpenNormalQuotients (C := FiniteGroupClass.nilpotent) hG.1 ?_
+  intro U
+  letI : CompactSpace G := IsProfiniteGroup.compactSpace hG.1
+  letI : T2Space G := IsProfiniteGroup.t2Space hG.1
+  exact ⟨openNormalSubgroup_finiteQuotient (G := G) U, hG.2 U⟩
+
+end IsPronilpotentGroup
+
+namespace IsProsolvableGroup
+
+/-- Repackage a prosolvable group as a pro-`solvable` group in the working `IsProCGroup`
+interface used for permanence arguments. -/
+theorem toIsProC_solvable (hG : IsProsolvableGroup G) :
+    IsProCGroup FiniteGroupClass.solvable G := by
+  letI : IsTopologicalGroup G := IsProfiniteGroup.isTopologicalGroup hG.1
+  refine IsProCGroup.of_allOpenNormalQuotients (C := FiniteGroupClass.solvable) hG.1 ?_
+  intro U
+  letI : CompactSpace G := IsProfiniteGroup.compactSpace hG.1
+  letI : T2Space G := IsProfiniteGroup.t2Space hG.1
+  exact ⟨openNormalSubgroup_finiteQuotient (G := G) U, hG.2 U⟩
+
+end IsProsolvableGroup
+
+namespace IsProcyclicGroup
+
+/-- The quotient of a procyclic group by an open normal subgroup is procyclic. -/
+theorem quotient_openNormalSubgroup (hG : IsProcyclicGroup G)
+    (U : OpenNormalSubgroup G) :
+    IsProcyclicGroup (G ⧸ (U : Subgroup G)) := by
+  letI : IsTopologicalGroup G := IsProfiniteGroup.isTopologicalGroup hG.isProfinite
+  letI : Finite (G ⧸ (U : Subgroup G)) := hG.finite_quotient U
+  letI : DiscreteTopology (G ⧸ (U : Subgroup G)) :=
+    QuotientGroup.discreteTopology (openNormalSubgroup_isOpen (G := G) U)
+  exact IsProCGroup.of_finite_discrete (C := FiniteGroupClass.cyclic)
+    FiniteGroupClass.cyclic_quotientClosed
+    (IsProCGroup.hasAllOpenNormalQuotientsInClass_of_basis_of_quotientClosed
+      FiniteGroupClass.cyclic_isomClosed FiniteGroupClass.cyclic_quotientClosed hG U)
+
+end IsProcyclicGroup
+
+end
+
+end ProCGroups.ProC

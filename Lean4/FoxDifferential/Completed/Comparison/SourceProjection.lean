@@ -1,0 +1,111 @@
+import FoxDifferential.Completed.Continuous.Naturality
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/FoxDifferential/Completed/Comparison/SourceProjection.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# Discrete-completed comparison
+
+Crossed differentials, universal differential modules, Fox boundaries, Euler formulas, and Jacobians are the common algebraic layer used by Crowell and metabelian applications.
+-/
+namespace FoxDifferential
+
+noncomputable section
+
+open scoped BigOperators
+
+universe u
+
+section SourceBoundaryProjection
+
+variable (C : ProCGroups.FiniteGroupClass.{u})
+variable {X H : Type u} [Fintype X]
+variable [Group H] [TopologicalSpace H] [IsTopologicalGroup H]
+
+/-- Finite-stage projection of the source-shaped completed Fox boundary map. -/
+theorem freeProCZCCompletedFoxBoundary_finiteStageProjection
+    (φ : X → H) (v : ZCFreeFoxCoordinates C (X := X) (H := H))
+    (j : ZCCompletedGroupAlgebraIndex C H) :
+    zcCompletedGroupAlgebraProjection C H j
+        (freeProCZCCompletedFoxBoundary C φ v) =
+      ∑ x : X,
+        zcCompletedGroupAlgebraProjection C H j (v x) *
+          zcCompletedGroupAlgebraProjection C H j (zcGroupLike C H (φ x) - 1) := by
+  rw [freeProCZCCompletedFoxBoundary_apply, zcCompletedGroupAlgebraProjection_sum]
+  apply Finset.sum_congr rfl
+  intro x _
+  simp only [zcCompletedGroupAlgebraProjection, zcCompletedGroupAlgebraProjection_mul,
+  zcCompletedGroupAlgebraProjection_sub, zcCompletedGroupAlgebraProjection_groupLike, MonoidAlgebra.of_apply,
+  zcCompletedGroupAlgebraProjection_one]
+
+/-- Finite-stage projection of the source-shaped completed Fox boundary map, with generator
+boundaries written in the selected finite pro-`C` quotient. -/
+theorem freeProCZCCompletedFoxBoundary_finiteStageProjection_stage
+    (φ : X → H) (v : ZCFreeFoxCoordinates C (X := X) (H := H))
+    (j : ZCCompletedGroupAlgebraIndex C H) :
+    zcCompletedGroupAlgebraProjection C H j
+        (freeProCZCCompletedFoxBoundary C φ v) =
+      ∑ x : X,
+        zcCompletedGroupAlgebraProjection C H j (v x) *
+          (MonoidAlgebra.of (ModNCompletedCoeff j.1.modulus)
+            (CompletedGroupAlgebraQuotientInClass H C j.2)
+            (QuotientGroup.mk (φ x)) - 1) := by
+  simpa [zcCompletedGroupAlgebraProjection] using
+    freeProCZCCompletedFoxBoundary_finiteStageProjection
+      (C := C) (X := X) (H := H) φ v j
+
+end SourceBoundaryProjection
+
+section TargetProjectionNaturality
+
+variable (C : ProCGroups.FiniteGroupClass.{u})
+variable (hC : ProCGroups.FiniteGroupClass.Hereditary C)
+variable {X H K : Type u} [Fintype X]
+variable [Group H] [TopologicalSpace H] [IsTopologicalGroup H]
+variable [Group K] [TopologicalSpace K] [IsTopologicalGroup K]
+
+omit [Fintype X] in
+/-- Componentwise finite-stage projection formula for target maps on completed Fox coordinates. -/
+theorem zcFreeFoxCoordinatesMap_finiteStageProjection
+    (η : H →ₜ* K)
+    (v : ZCFreeFoxCoordinates C (X := X) (H := H))
+    (j : ZCCompletedGroupAlgebraIndex C K) (x : X) :
+    zcCompletedGroupAlgebraProjection C K j
+        (zcFreeFoxCoordinatesMap (X := X) C hC η v x) =
+      zcCompletedGroupAlgebraMapStage C hC η j
+        (zcCompletedGroupAlgebraProjection C H
+          (j.1, completedGroupAlgebraComapIndexInClass
+            (G := H) (H := K) C hC η j.2) (v x)) := by
+  simp only [zcFreeFoxCoordinatesMap, zcCompletedGroupAlgebraProjection_map]
+
+/-- Finite-stage projection of target naturality for source-shaped completed Fox boundary maps. -/
+theorem freeProCZCCompletedFoxBoundary_mapTarget_finiteStageProjection_stage
+    (η : H →ₜ* K) (φ : X → H)
+    (v : ZCFreeFoxCoordinates C (X := X) (H := H))
+    (j : ZCCompletedGroupAlgebraIndex C K) :
+    zcCompletedGroupAlgebraProjection C K j
+        (zcCompletedGroupAlgebraMap C hC η (freeProCZCCompletedFoxBoundary C φ v)) =
+      ∑ x : X,
+        zcCompletedGroupAlgebraMapStage C hC η j
+          (zcCompletedGroupAlgebraProjection C H
+            (j.1, completedGroupAlgebraComapIndexInClass
+              (G := H) (H := K) C hC η j.2) (v x)) *
+          (MonoidAlgebra.of (ModNCompletedCoeff j.1.modulus)
+            (CompletedGroupAlgebraQuotientInClass K C j.2)
+            (QuotientGroup.mk (η (φ x))) - 1) := by
+  rw [freeProCZCCompletedFoxBoundary_mapTarget]
+  rw [freeProCZCCompletedFoxBoundary_finiteStageProjection_stage]
+  apply Finset.sum_congr rfl
+  intro x _
+  rw [zcFreeFoxCoordinatesMap_finiteStageProjection]
+
+end TargetProjectionNaturality
+
+end
+
+end FoxDifferential

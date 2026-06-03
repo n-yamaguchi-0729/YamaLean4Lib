@@ -1,0 +1,79 @@
+import ReidemeisterSchreier.FreeGroup.Automorphisms
+import ReidemeisterSchreier.FreeGroup.PrefixParent
+import ReidemeisterSchreier.Discrete.Presentations.Relators
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.RelatorQuotientMutualMapData
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.GeneratorMap
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.Core
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.RelatorReplacement
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.GeneratorAddition
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.GeneratorDeletion
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.Script
+import ReidemeisterSchreier.Discrete.Presentations.KernelQuotient
+import ReidemeisterSchreier.Discrete.Presentations.Automation
+import ReidemeisterSchreier.Discrete.OpenSubgroups.FreeBasis
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Generators
+import ReidemeisterSchreier.Discrete.OpenSubgroups.PrefixTree
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Transversals
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Words.Basic
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Words.NielsenSchreierCompat
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.Rewriting
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Data
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Tau
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.CleanedSymbols
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.CleanedTau
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.CleanedRelators
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Kernel
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.WordCertificates
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Presentation
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.TargetPresentation.Core
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.TargetPresentation.NormalWords
+import ReidemeisterSchreier.Schreier
+import ProCGroups.FreeConstructions.AmalgamsAndModules
+import ProCGroups.FreeConstructions.FiniteSubgroupBounds
+import ProCGroups.FreeProC.Characterization.EmbeddingProblems
+import ProCGroups.FreeProC.Characterization.FreenessAndLifting
+import ProCGroups.FreeProC.Characterization.InverseLimitTowers
+import ProCGroups.FreeProC.Characterization.Quasifree
+import ProCGroups.FreeProC.Constructions
+import ProCGroups.FreeProC.Criteria.AbstractResidual
+import ProCGroups.FreeProC.Criteria.InverseLimitsAndFiniteSubsets
+import ProCGroups.FreeProC.Spaces
+import ProCGroups.NormalSubgroups.MaximalIntersectionsAndSimpleRanks
+import ProCGroups.NormalSubgroups.PointedSumsAndSimpleQuotients
+import ProCGroups.NormalSubgroups.SimpleQuotients.Compactness
+import ProCGroups.Presentations.Profinite
+import ProCGroups.Presentations.SchreierTietze.Data
+import ProCGroups.Presentations.SchreierTietze.Relators
+import ProCGroups.Presentations.SchreierTietze.Restricted
+import ProCGroups.WreathProducts
+import ReidemeisterSchreier.Profinite.OpenSubgroups.Basic
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisCardinalRank
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisFiniteRank
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisInfiniteRank
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisTheorems
+import ReidemeisterSchreier.Profinite.OpenSubgroups.DenseFreeModel
+import ReidemeisterSchreier.Profinite.OpenSubgroups.ExactRightSchreierGeneration
+import ReidemeisterSchreier.Profinite.OpenSubgroups.FinitePermutationTargets
+import ReidemeisterSchreier.Profinite.OpenSubgroups.GeneratingFamilies
+import ReidemeisterSchreier.Profinite.OpenSubgroups.MinimalPower
+import ReidemeisterSchreier.Profinite.OpenSubgroups.RankBound
+import ReidemeisterSchreier.Profinite.OpenSubgroups.RightQuotient
+import ReidemeisterSchreier.Profinite.OpenSubgroups.SchreierTransversals
+import ReidemeisterSchreier.Profinite.SchreierFormula
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/ReidemeisterSchreier.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# Reidemeister-Schreier
+
+Public root for the discrete and profinite Reidemeister-Schreier APIs.
+
+For faster downstream builds, import `ReidemeisterSchreier.Discrete`,
+`ReidemeisterSchreier.Profinite`, or a focused submodule directly.
+-/

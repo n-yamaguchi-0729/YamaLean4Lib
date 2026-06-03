@@ -1,0 +1,48 @@
+import ProCGroups.FreeConstructions.AmalgamsAndModules
+import ProCGroups.FreeConstructions.FiniteSubgroupBounds
+import ProCGroups.FreeProC.Characterization.EmbeddingProblems
+import ProCGroups.FreeProC.Characterization.FreenessAndLifting
+import ProCGroups.FreeProC.Characterization.InverseLimitTowers
+import ProCGroups.FreeProC.Characterization.Quasifree
+import ProCGroups.FreeProC.Constructions
+import ProCGroups.FreeProC.Criteria.AbstractResidual
+import ProCGroups.FreeProC.Criteria.InverseLimitsAndFiniteSubsets
+import ProCGroups.FreeProC.Spaces
+import ProCGroups.NormalSubgroups.MaximalIntersectionsAndSimpleRanks
+import ProCGroups.NormalSubgroups.PointedSumsAndSimpleQuotients
+import ProCGroups.NormalSubgroups.SimpleQuotients.Compactness
+import ProCGroups.Presentations.Profinite
+import ProCGroups.Presentations.SchreierTietze.Data
+import ProCGroups.Presentations.SchreierTietze.Relators
+import ProCGroups.Presentations.SchreierTietze.Restricted
+import ProCGroups.WreathProducts
+import ReidemeisterSchreier.Profinite.OpenSubgroups.Basic
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisCardinalRank
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisFiniteRank
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisInfiniteRank
+import ReidemeisterSchreier.Profinite.OpenSubgroups.BasisTheorems
+import ReidemeisterSchreier.Profinite.OpenSubgroups.DenseFreeModel
+import ReidemeisterSchreier.Profinite.OpenSubgroups.ExactRightSchreierGeneration
+import ReidemeisterSchreier.Profinite.OpenSubgroups.FinitePermutationTargets
+import ReidemeisterSchreier.Profinite.OpenSubgroups.GeneratingFamilies
+import ReidemeisterSchreier.Profinite.OpenSubgroups.MinimalPower
+import ReidemeisterSchreier.Profinite.OpenSubgroups.RankBound
+import ReidemeisterSchreier.Profinite.OpenSubgroups.RightQuotient
+import ReidemeisterSchreier.Profinite.OpenSubgroups.SchreierTransversals
+import ReidemeisterSchreier.Profinite.SchreierFormula
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/ReidemeisterSchreier/Profinite.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# Profinite Reidemeister-Schreier API
+
+This module collects the profinite/open-subgroup interface.  It intentionally
+avoids importing the full discrete root module or application-specific FreeProC
+canonical data; profinite files import only the discrete submodules they need.
+-/

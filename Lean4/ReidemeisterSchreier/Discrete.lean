@@ -1,0 +1,46 @@
+import ReidemeisterSchreier.FreeGroup.Automorphisms
+import ReidemeisterSchreier.FreeGroup.PrefixParent
+import ReidemeisterSchreier.Discrete.Presentations.Relators
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.RelatorQuotientMutualMapData
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.GeneratorMap
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.Core
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.RelatorReplacement
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.GeneratorAddition
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.GeneratorDeletion
+import ReidemeisterSchreier.Discrete.Presentations.Tietze.Script
+import ReidemeisterSchreier.Discrete.Presentations.KernelQuotient
+import ReidemeisterSchreier.Discrete.Presentations.Automation
+import ReidemeisterSchreier.Discrete.OpenSubgroups.FreeBasis
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Generators
+import ReidemeisterSchreier.Discrete.OpenSubgroups.PrefixTree
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Transversals
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Words.Basic
+import ReidemeisterSchreier.Discrete.OpenSubgroups.Words.NielsenSchreierCompat
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.Rewriting
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Data
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Tau
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.CleanedSymbols
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.CleanedTau
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.CleanedRelators
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Kernel
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.WordCertificates
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.Presentation
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.TargetPresentation.Core
+import ReidemeisterSchreier.Discrete.ReidemeisterSchreier.FiniteQuotient.TargetPresentation.NormalWords
+import ReidemeisterSchreier.Schreier
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/ReidemeisterSchreier/Discrete.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# Discrete Reidemeister-Schreier Theory
+
+This module re-exports the mathlib-only discrete FreeGroup helpers,
+open-subgroup Schreier bases, generic presentation/Tietze API, finite
+Reidemeister-Schreier presentations, and relator automation.
+-/

@@ -1,0 +1,58 @@
+import FenchelNielsenZomorrodian.Discrete.Abelianization.EllipticAbelianization
+import FenchelNielsenZomorrodian.Discrete.Abelianization.PeriodClassOrder
+import FenchelNielsenZomorrodian.Discrete.Abelianization.PeriodCoordinate
+import FenchelNielsenZomorrodian.Discrete.Abelianization.PeriodQuotient
+import FenchelNielsenZomorrodian.Discrete.Arithmetic.FamilyLcm
+import FenchelNielsenZomorrodian.Discrete.Arithmetic.FinsetLcm
+import FenchelNielsenZomorrodian.Discrete.Arithmetic.PrimeDivisors
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.AbelianizationKernel.Conditions
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.AbelianizationKernel.Periods
+import FenchelNielsenZomorrodian.Discrete.MainTheorem
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.FirstReduction.Signatures
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.PeriodFamilies
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.PeriodOne.LowCardDihedral
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.PeriodOne.SourceSubgroup
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.PeriodOne.TargetSignatures
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.Quotients
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.SecondReduction.OrderedTargetSignature
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.SecondReduction.Signatures
+import FenchelNielsenZomorrodian.Discrete.CompactFuchsian.ZeroGenus.Perfectness
+import FenchelNielsenZomorrodian.Discrete.Coordinates.FenchelPeriodCoordinate
+import FenchelNielsenZomorrodian.Discrete.Coordinates.ZModFamily
+import FenchelNielsenZomorrodian.Discrete.Core.CompactFuchsianPresentation
+import FenchelNielsenZomorrodian.Discrete.Core.EllipticCompact
+import FenchelNielsenZomorrodian.Discrete.Core.EllipticQuotientHom
+import FenchelNielsenZomorrodian.Discrete.Core.FamilySignature
+import FenchelNielsenZomorrodian.Discrete.Core.Signature
+import FenchelNielsenZomorrodian.Discrete.FiniteIndex.Definitions
+import FenchelNielsenZomorrodian.Discrete.FiniteIndex.KernelTransfer
+import FenchelNielsenZomorrodian.Discrete.FiniteIndex.NormalCore
+import FenchelNielsenZomorrodian.Discrete.FiniteIndex.Smooth
+import FenchelNielsenZomorrodian.Discrete.FiniteIndex.SmoothQuotientData
+import FenchelNielsenZomorrodian.Discrete.GroupTheory.Basic
+import FenchelNielsenZomorrodian.Discrete.GroupTheory.DerivedSeries
+import FenchelNielsenZomorrodian.Discrete.Singerman.CyclicProductIdentities
+import FenchelNielsenZomorrodian.Discrete.Singerman.CyclicQuotientActions
+import FenchelNielsenZomorrodian.Discrete.Singerman.CyclicSchreierKernel
+import FenchelNielsenZomorrodian.Discrete.Singerman.FreeGroupWords
+import FenchelNielsenZomorrodian.Discrete.Singerman.KernelTransport
+import FenchelNielsenZomorrodian.Discrete.Singerman.ReidemeisterSchreier
+import FenchelNielsenZomorrodian.Discrete.Torsion.CompactFiniteOrder
+import FenchelNielsenZomorrodian.Discrete.Torsion.FuchsianFiniteSubgroupFrontier
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/FenchelNielsenZomorrodian/Discrete.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# FenchelNielsenZomorrodian.Discrete
+
+Public wrapper for the reusable discrete FNZ API: arithmetic, signatures, abelianization,
+period-coordinate data, quotient data, torsion frontiers, and the discrete main theorem used by
+the profinite bridge. Reduction proof data, relator proof certificates, and transport maps remain
+available through focused imports.
+-/

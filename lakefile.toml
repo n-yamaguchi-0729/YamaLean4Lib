@@ -1,0 +1,57 @@
+enableArtifactCache = true
+restoreAllArtifacts = true
+
+name = "YamaguchiLean4Library"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = [
+  "YamaguchiLean4Library",
+  "CompletedGroupAlgebra",
+  "CrowellExactSequence",
+  "FenchelNielsenZomorrodian",
+  "FoxDifferential",
+  "ProCGroups",
+  "ReidemeisterSchreier",
+  "Yama2026_Sections_1_And_2_1"
+]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.27.0"
+
+[[lean_lib]]
+name = "YamaguchiLean4Library"
+
+[[lean_lib]]
+name = "CompletedGroupAlgebra"
+srcDir = "Lean4"
+
+[[lean_lib]]
+name = "CrowellExactSequence"
+srcDir = "Lean4"
+
+[[lean_lib]]
+name = "FenchelNielsenZomorrodian"
+srcDir = "Lean4"
+
+[[lean_lib]]
+name = "FoxDifferential"
+srcDir = "Lean4"
+
+[[lean_lib]]
+name = "ProCGroups"
+srcDir = "Lean4"
+
+[[lean_lib]]
+name = "ReidemeisterSchreier"
+srcDir = "Lean4"
+
+[[lean_lib]]
+name = "Yama2026_Sections_1_And_2_1"
+srcDir = "Lean4"

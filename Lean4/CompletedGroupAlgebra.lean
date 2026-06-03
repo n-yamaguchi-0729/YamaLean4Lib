@@ -1,0 +1,65 @@
+import CompletedGroupAlgebra.Basic.InClass.Index
+import CompletedGroupAlgebra.Basic.InClass.Stage
+import CompletedGroupAlgebra.Basic.InClass.System
+import CompletedGroupAlgebra.Basic.InClass.LimitAlgebra
+import CompletedGroupAlgebra.Basic.InClass.Projection
+import CompletedGroupAlgebra.Basic.InClass.Topology
+import CompletedGroupAlgebra.Basic.AllFinite.Index
+import CompletedGroupAlgebra.Basic.AllFinite.Stage
+import CompletedGroupAlgebra.Basic.AllFinite.Additive
+import CompletedGroupAlgebra.Basic.AllFinite.Ring
+import CompletedGroupAlgebra.Basic.AllFinite.Projections
+import CompletedGroupAlgebra.Basic.AllFinite.Topology
+import CompletedGroupAlgebra.Basic.ClassComparison
+import CompletedGroupAlgebra.OpenFiniteQuotientTopology.CanonicalMaps
+import CompletedGroupAlgebra.OpenFiniteQuotientTopology.FiniteQuotients
+import CompletedGroupAlgebra.OpenFiniteQuotientTopology.OpenFiniteQuotients
+import CompletedGroupAlgebra.OpenFiniteQuotientTopology.OpenFiniteLimit.CanonicalMap
+import CompletedGroupAlgebra.OpenFiniteQuotientTopology.OpenFiniteComparison
+import CompletedGroupAlgebra.AllFiniteFunctoriality.Comap
+import CompletedGroupAlgebra.AllFiniteFunctoriality.StageMap
+import CompletedGroupAlgebra.AllFiniteFunctoriality.Map
+import CompletedGroupAlgebra.AllFiniteFunctoriality.Surjectivity
+import CompletedGroupAlgebra.AllFiniteFunctoriality.InClassNaturality
+import CompletedGroupAlgebra.AllFiniteFunctoriality.GroupLike
+import CompletedGroupAlgebra.InClassFunctoriality.ComapIndex
+import CompletedGroupAlgebra.InClassFunctoriality.StageMaps
+import CompletedGroupAlgebra.InClassFunctoriality.Maps
+import CompletedGroupAlgebra.InClassFunctoriality.GroupLike
+import CompletedGroupAlgebra.InClassFunctoriality.Comparison
+import CompletedGroupAlgebra.InClassFunctoriality.UnitRepresentation
+import CompletedGroupAlgebra.Augmentation.StageAugmentation
+import CompletedGroupAlgebra.Augmentation.CanonicalAugmentation
+import CompletedGroupAlgebra.Augmentation.AugmentationIdeal
+import CompletedGroupAlgebra.Augmentation.Functoriality
+import CompletedGroupAlgebra.AllFiniteAugmentation.TerminalIndex
+import CompletedGroupAlgebra.AllFiniteAugmentation.StageAugmentation
+import CompletedGroupAlgebra.AllFiniteAugmentation.CanonicalAugmentation
+import CompletedGroupAlgebra.AllFiniteAugmentation.InClassComparison
+import CompletedGroupAlgebra.AllFiniteAugmentation.AugmentationIdeal
+import CompletedGroupAlgebra.UniversalProperty.Basic
+import CompletedGroupAlgebra.UniversalProperty.FiniteQuotient
+import CompletedGroupAlgebra.UniversalProperty.OpenSubmoduleQuotient
+import CompletedGroupAlgebra.UniversalProperty.ProfiniteModule
+import CompletedGroupAlgebra.FunctorialityComposition
+import CompletedGroupAlgebra.ProfiniteModules.Basic.OpenIdeals
+import CompletedGroupAlgebra.ProfiniteModules.FiniteGroupAlgebra.Topology
+import CompletedGroupAlgebra.ProfiniteModules.FiniteGroupAlgebra.Functoriality
+import CompletedGroupAlgebra.ProfiniteModules.FiniteGroupAlgebra.Augmentation.Abstract
+import CompletedGroupAlgebra.ProfiniteModules.FiniteGroupAlgebra.Augmentation.Completed
+import CompletedGroupAlgebra.ProfiniteModules.FiniteGroupAlgebra.UnitRepresentation
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/CompletedGroupAlgebra.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# Completed group algebra
+
+Public entry point for completed group algebras, augmentation maps, augmentation ideals,
+finite-stage functoriality, and profinite-module universal properties.
+-/

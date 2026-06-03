@@ -1,0 +1,36 @@
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Augmentation
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Basic.Augmentation
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraModN.InClass.StageCoeffMap
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Basic.StageCoeffMap.AllFinite
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Basic.StageCoeffMap.Coeff
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Coeff.AddCommGroup
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Coeff.Projection
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Coeff.Ring
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Coeff.System
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.InClass.Augmentation
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.InClass.Map
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.InClass.System.Basic
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.InClass.System.Ring.AddCommGroup
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.InClass.System.Ring.GroupLike
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.InClass.System.Ring.Multiplicative
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.InClass.System.Ring.Projection
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.Module
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.System.Basic
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.System.Ring.AddCommGroup
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.System.Ring.GroupLike
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.System.Ring.Multiplicative
+import FoxDifferential.Completed.CoefficientRings.CompletedGroupAlgebraPrimePower.System.Ring.Projection
+
+/-
+PUBLIC_PAGE_SNAPSHOT
+generated_at: 2026-05-27T09:47:29+09:00
+lean_source: lean4/FoxDifferential/Completed/CoefficientRings/CompletedGroupAlgebraPrimePower.lean
+translation_root: data/translation
+purpose: identifies the local data snapshot used to build pages/
+placement: after imports, never before imports
+-/
+/-!
+# Completed coefficient algebras
+
+Coefficient algebras, residue stages, and completed group-algebra maps are kept as the scalar layer for completed Fox calculus.
+-/
