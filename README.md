@@ -23,13 +23,14 @@ lake build
 
 ## Package Information
 
-- Generated at: 2026-06-03T12:38:14+09:00
+- Generated at: 2026-06-03T14:48:02+09:00
 - Package: YamaguchiLean4Library
 - Lean toolchain: `leanprover/lean4:v4.27.0`
 - Mathlib ref: `v4.27.0`
 - Locked dependencies: included
 - Lean source files: 673
 - Importable modules: 673
+- Source repository: https://github.com/n-yamaguchi-0729/YamaLean4Lib
 - Source ref: main
 
 
