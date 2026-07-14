@@ -1,4 +1,4 @@
-# Yamaguchi Lean4 Library
+# Yamaguchi Lean 4 Library
 
 This ZIP is a Lake project generated from the Lean sources used by the website.
 The source tree follows the same shape as the working Lean project: Lake files at
@@ -29,7 +29,7 @@ lake build
 
 ## Package Information
 
-- Generated at: 2026-07-14T19:50:17+09:00
+- Generated at: 2026-07-14T20:11:02+09:00
 - Package: YamaguchiLean4Library
 - Lean toolchain: `leanprover/lean4:v4.27.0`
 - Mathlib ref: `v4.27.0`
